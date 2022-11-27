@@ -5,7 +5,7 @@ public class DescentEvent {
     int Altitude = 0;
     int Status = 0;
 
-    public DescentEvent(int t, int sp, int f, int h, int st) {
+    public DescentEvent(int t, int sp, int f, int h) {
         this.Seconds = t * 10;
         this.Velocity = sp;
         this.Fuel = f;
@@ -19,10 +19,14 @@ public class DescentEvent {
     public int getAltitude() {
         return this.Altitude;
     }
-    public int getStatus() { return this.Status; }
+
+    public int getStatus() {
+        return this.Status;
+    }
+
     @Override
     public String toString() {
-        String s = this.Seconds +"\t\t" + this.Velocity + " \t\t" + this.Fuel + " \t\t" + this.Altitude;
+        String s = String.format("%-8s%-12s%-12s%-4s", this.Seconds, this.Velocity, this.Fuel, this.Altitude);
         return s;
     }
 }
